@@ -1,0 +1,42 @@
+﻿
+
+@foreach (var food in Model)
+{
+
+    <div class="col-md-4 col-sm-4 mb-4 mt-4" id="xop-box">
+
+        <div id="category-sec">
+
+            
+                <div class="card" style="overflow:hidden;">
+
+                    <div class="view overlay hm-white-slight" style="overflow:hidden;">
+                        <img src="~/Images/burgerpics/barbecue/4023531.jpg" alt="" class="img-fluid" />
+                        
+                    </div>
+
+
+                    <div class="card-body">
+                        <h4 class="card-title">@food.CategoryName</h4>
+                        <p class="card-text">@food.Description</p>
+
+                       
+
+                        <div class="text-right">
+                            <a class="btn btn-primary" id="cartButton" asp-controller="FastFood" asp-action="List" asp-route-categoryid="@food.CategoryName">
+                                See All | @food.CategoryName
+                            </a>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+
+    </div>
+
+
+}
+
+
+
+

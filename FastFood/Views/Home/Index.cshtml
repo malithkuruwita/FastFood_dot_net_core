@@ -1,0 +1,167 @@
+﻿@model FoodListViewModel
+
+
+@await Html.PartialAsync("Carousel")
+
+
+
+<div class="container">
+    <div class="row">
+
+        @await Component.InvokeAsync("HomeFoodCategories")
+
+        </div>
+    </div>
+
+
+
+<div style="margin-top:5px;">
+
+    <div id="paral1">
+        <div id="paral1-tint1">
+            <h1 id="parala-text1">Prefferd Burgers</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="margin:5px;">
+            @foreach (var food in Model.PreferredFoods)
+            {
+                @if (food.CategoryId.Equals(1))
+                {
+                    @Html.Partial("FoodsSummery", food)
+                }
+            }
+        </div>
+    </div>
+
+
+
+
+    <div id="paral2">
+        <div id="paral2-tint2">
+            <h1 id="parala-text1">Prefferd Pizzas</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="margin:5px;">
+            @foreach (var food in Model.PreferredFoods)
+            {
+                @if (food.CategoryId.Equals(2))
+                {
+                    @Html.Partial("FoodsSummery", food)
+                }
+            }
+        </div>
+    </div>
+
+
+
+
+    <div id="paral3">
+        <div id="paral3-tint3">
+            <h1 id="parala-text1">Prefferd Drinks</h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row" style="margin:5px;">
+            @foreach (var food in Model.PreferredFoods)
+            {
+                @if (food.CategoryId.Equals(3))
+                {
+                    @Html.Partial("FoodsSummery", food)
+                }
+            }
+        </div>
+    </div>
+
+</div>
+
+
+        
+
+
+
+
+
+        @section masterjs {
+
+            <script type="text/javascript">
+
+
+                $(document).ready(function () {
+
+
+                    $(window).scroll(
+                        function () {
+
+
+
+                            var scrollval1 = $(this).scrollTop();
+                            var opacity1;
+                            if (scrollval1 > $('#paral1').offset().top - $(window).height()) {
+
+
+                                opacity1 = (scrollval1 - $('#paral1').offset().top + 400) / (scrollval1 / 5);
+
+                                $('#paral1-tint1').css({ 'opacity': opacity1 });
+
+
+                            }
+
+                            var scrollval2 = $(this).scrollTop();
+                            var opacity2;
+                            if (scrollval2 > $('#paral2').offset().top - $(window).height()) {
+
+
+                                opacity2 = (scrollval2 - $('#paral2').offset().top + 400) / (scrollval2 / 5);
+
+                                $('#paral2-tint2').css({ 'opacity': opacity2 });
+
+
+                            }
+
+
+                            var scrollval3 = $(this).scrollTop();
+                            var opacity3;
+                            if (scrollval3 > $('#paral3').offset().top - $(window).height()) {
+
+
+                                opacity3 = (scrollval3 - $('#paral3').offset().top + 400) / (scrollval3 / 5);
+
+                                $('#paral3-tint3').css({ 'opacity': opacity3 });
+
+
+                            }
+
+
+                        }
+                    );
+
+                });
+
+            </script>
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

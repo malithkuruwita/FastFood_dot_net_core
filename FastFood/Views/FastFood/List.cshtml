@@ -1,0 +1,36 @@
+﻿@model FoodListViewModel
+
+
+
+
+
+<div class="container">
+    <div class="row" id="food-list" style="margin:5px;">
+
+        @foreach (var food in Model.Foods)
+        {
+            @Html.Partial("FoodsSummery", food)
+
+        }
+
+    </div>
+</div>
+
+
+
+@section masterjs {
+
+<script type="text/javascript">
+        @*<script type="text/javascript" src="@Url.Content("/Scripts/SomeScript.js")"></script>*@
+
+        $(document).ready(function () {
+            
+            $(function () {
+                $('html, body').animate({
+                    scrollTop: $('#food-list').offset().top
+                }, 1000);
+            }); 
+    });
+   
+    </script>
+}
